@@ -8,7 +8,6 @@ const Enemy = function(x, y, speed) {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
-    // this.explode = 'images/explode.png';
 };
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
@@ -21,6 +20,7 @@ Enemy.prototype.update = function(dt) {
     //once enemies are out of bounds, reset position and start with diff speed
     if(this.x > 510){
         this.x = -50;
+        //varies speed of enemies after running out of bounds
         this.speed = 100 + Math.floor(Math.random() * 128);
     }
     //collision detection
@@ -29,7 +29,6 @@ Enemy.prototype.update = function(dt) {
         player.y = 380;
     }
 };
-
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
@@ -62,6 +61,7 @@ Player.prototype.update = function() {
     }
     //win condition / resets player position back to start after 200ms
     if(this.y < 0){
+        this.y = 0;
         setTimeout(() => {
             this.x = 200;
             this.y = 380;
@@ -72,6 +72,7 @@ Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 Player.prototype.handleInput = function(input) {
+    //uses switch statement to handle arrow keys
     switch(input){
         case 'left':
         this.x -= 100;
@@ -88,19 +89,19 @@ Player.prototype.handleInput = function(input) {
     }
 };
 // Now instantiate your objects.
-//position player at location
-const player = new Player(200,380);
-// const explode = new Explode();
-// Place all enemy objects in an array called allEnemie
 // Place the player object in a variable called player
+//position player at starting location
+const player = new Player(200,380);
+// Place all enemy objects in an array called allEnemies
 const allEnemies = [];
 //position enemies at first blocks of the yAxis
 const enemyLoc = [60,140,220];
+//take all enemies and position them at the start and move them with varying speeds
 enemyLoc.forEach(function(yAxis) {
     const enemy = new Enemy(0, yAxis, 100 + Math.floor(Math.random() * 128));
     allEnemies.push(enemy);
 });
-
+console.log(allEnemies);
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
