@@ -1,6 +1,5 @@
 # frontend-nanodegree-arcade-game
 ## Frogger Clone
-===============================
 
 - Please clone this repo or download the .zip archive and extract somewhere.  Or click [here](https://papanugget.github.io/arcade-game/) to run the game in your browser
 - After extraction please double click the index.html file.
