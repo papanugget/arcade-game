@@ -7,7 +7,7 @@ const Enemy = function(x, y, speed) {
     this.speed = speed;
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
-    this.sprite = 'images/enemy-bug.png';
+    this.sprite = './images/enemy-bug.png';
 };
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
@@ -17,7 +17,7 @@ Enemy.prototype.update = function(dt) {
     // all computers.
     //uses dt to run at the same speed across different computers / browsers
     this.x += this.speed * dt;
-    //once enemies are out of bounds, reset position and start with diff speed
+    //once enemies are out of bounds, reset psition and start with diff speed
     if(this.x > 510){
         this.x = -50;
         //varies speed of enemies after running out of bounds
@@ -45,7 +45,7 @@ Enemy.prototype.render = function() {
 const Player = function(x, y) {
     this.x = x;
     this.y = y;
-    this.sprite = 'images/char-boy.png';
+    this.sprite = './images/char-boy.png';
 };
 Player.prototype.update = function() {
     // console.log('player update prototype called');
@@ -101,7 +101,7 @@ enemyLoc.forEach(function(yAxis) {
     const enemy = new Enemy(0, yAxis, 100 + Math.floor(Math.random() * 128));
     allEnemies.push(enemy);
 });
-console.log(allEnemies);
+// console.log(allEnemies);
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
