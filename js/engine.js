@@ -44,9 +44,10 @@ var Engine = (function(global) {
         /* Call our update/render functions, pass along the time delta to
          * our update function since it may be used for smooth animation.
          */
-        update(dt);
-        render();
-
+        if(!player.paused){
+            update(dt);
+            render();
+        }
         /* Set our lastTime variable which is used to determine the time delta
          * for the next time this function is called.
          */
@@ -153,6 +154,11 @@ var Engine = (function(global) {
         });
         player.render();
     }
+    //reset game function
+    function resetGame(){
+        modal.style.display = 'none';
+        player.paused = false;
+    }
 
     /* This function does nothing but it could have been a good place to
      * handle game reset states - maybe a new game menu or a game over screen
@@ -161,7 +167,6 @@ var Engine = (function(global) {
     function reset() {
         // noop
     }
-
     /* Go ahead and load all of the images we know we're going to need to
      * draw our game level. Then set init as the callback method, so that when
      * all of these images are properly loaded our game will start.

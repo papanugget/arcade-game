@@ -46,7 +46,9 @@ const Player = function(x, y) {
     this.x = x;
     this.y = y;
     this.sprite = './images/char-boy.png';
+    this.paused = false;
 };
+
 Player.prototype.update = function() {
     // console.log('player update prototype called');
     //prevent player from moving beyond game boundaries
@@ -62,6 +64,8 @@ Player.prototype.update = function() {
     //win condition / resets player position back to start after 200ms
     if(this.y < 0){
         this.y = 0;
+        this.paused = true;
+        modal.style.display = 'block';
         setTimeout(() => {
             this.x = 200;
             this.y = 380;
@@ -101,6 +105,16 @@ enemyLoc.forEach(function(yAxis) {
     const enemy = new Enemy(0, yAxis, 100 + Math.floor(Math.random() * 128));
     allEnemies.push(enemy);
 });
+//select modal
+const modal = document.querySelector('#victory');
+const reset = modal.querySelector('.restart');
+//event listener for reset button
+reset.addEventListener('click', resetGame);
+//resetGame function
+function resetGame(){
+    modal.style.display = 'none';
+    player.paused = false;
+}
 // console.log(allEnemies);
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
