@@ -1,6 +1,10 @@
-frontend-nanodegree-arcade-game
-===============================
+# frontend-nanodegree-arcade-game
+## Frogger Clone
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+- Please clone this repo or download the .zip archive and extract somewhere.  Or click [here](https://papanugget.github.io/arcade-game/) to run the game in your browser
+- After extraction please double click the index.html file.
+- Use the arrow keys to navigate your way to the other side of the road.
+- Avoid the bugs otherwise you get sent back to the beginning.
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+---
+Personal Note: I realize this meets the bare minimum requirements of the project but real life derailed me for a little bit as I recently had a baby and in-laws came to visit.  I'm back on track now but due to the disruption could not implement any of the fancier elements.  Will continue to iterate on the project as time permits in the future.  
