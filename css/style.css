@@ -18,15 +18,8 @@ body {
     left: 50%;
     margin-left: -300px;
     margin-top: -300px;
-    /* text-align: center; */
-    /* align-content: center; */
 }
 .modal-content {
-    /* background-color: #fff; */
-    /* text-align: center; */
-    /* width: 35%;
-    
-    margin-left: 40px; */
     margin-top: 25%;
     text-align: center;
 }
